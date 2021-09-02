@@ -2,7 +2,7 @@ package helpers
 
 //TODO: Add Function For Rising and Falling Alerts
 
-func rising(arr []float64, len int) bool {
+func Rising(arr []float64, len int) bool {
 
 
 
