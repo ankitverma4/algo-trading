@@ -5,13 +5,9 @@ const (
 	USER_COLL    = "users"
 )
 
-type markers int
-
 const (
 	opening = iota
 	closing
 	max
 	min
-
 )
-

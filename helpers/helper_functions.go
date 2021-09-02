@@ -2,39 +2,16 @@ package helpers
 
 //TODO: Add Function For Rising and Falling Alerts
 
-func Rising(arr []float64, len int) bool {
-
-
+func rising(arr []float64, len int) bool {
 
 	// Add deffajult value as 3
 	flag := false
 	currVal := arr[0]
 
-	for _,val := range arr[1:]{
+	for _, val := range arr[1:] {
 		len--
-		if( len != 0) {
-		if (currVal > val) {
-			flag = true
-			continue
-		}
-		return false
-		}
-		break
-}
-	return flag
-
-}
-
-
-func falling(arr []float64, len int) bool {
-
-	flag := false
-	currVal := arr[0]
-
-	for _,val := range arr[1:]{
-		len--
-		if( len != 0) {
-			if (currVal < val) {
+		if len != 0 {
+			if currVal > val {
 				flag = true
 				continue
 			}
@@ -46,6 +23,25 @@ func falling(arr []float64, len int) bool {
 
 }
 
+func falling(arr []float64, len int) bool {
+
+	flag := false
+	currVal := arr[0]
+
+	for _, val := range arr[1:] {
+		len--
+		if len != 0 {
+			if currVal < val {
+				flag = true
+				continue
+			}
+			return false
+		}
+		break
+	}
+	return flag
+
+}
 
 func Min(i, j int) int {
 	if i < j {
