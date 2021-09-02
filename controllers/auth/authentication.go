@@ -36,6 +36,7 @@ func RegisterHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	fmt.Println(res)
 }
+
 // Logs in user
 func LoginHandler(w http.ResponseWriter, r *http.Request) {
 
@@ -47,7 +48,6 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
-
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -57,11 +57,11 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, res.Error, http.StatusForbidden)
 	} else {
 		c := &http.Cookie{
-			Name: "authToken",
-			Value: result.Token,
-			Path: "/",
+			Name:     "authToken",
+			Value:    result.Token,
+			Path:     "/",
 			HttpOnly: true,
-        	Secure:   true,
+			Secure:   true,
 			SameSite: http.SameSiteNoneMode,
 		}
 		http.SetCookie(w, c)
